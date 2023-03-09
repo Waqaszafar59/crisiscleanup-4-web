@@ -2,7 +2,7 @@
   <base-select
     :key="user.id"
     v-model="selectedRoleIds"
-    class="border border-crisiscleanup-dark-100"
+    class="border border-crisiscleanup-dark-100s"
     multiple
     searchable
     mode="tags"
@@ -13,6 +13,7 @@
     :loading="selectInputLoading"
     select-classes="bg-white border text-xs role-select p-1"
     @changed="updateUserRoles"
+    :clearable="false"
   >
     <template #selected-option="{ option }">
       {{ getRoleText(option) }}
@@ -128,4 +129,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss">
+.multiselect-dropdown {
+  z-index: 9999 !important;
+}
+</style>
