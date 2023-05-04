@@ -391,7 +391,7 @@ function getCubicBezierXYatPercent(
   percent: number,
 ) {
   // Cubic helper formula
-  function CubicN(T: number, a: number, b: number, c: number, d: number) {
+  function cubicN(T: number, a: number, b: number, c: number, d: number) {
     const t2 = T * T;
     const t3 = t2 * T;
     return (
@@ -403,8 +403,8 @@ function getCubicBezierXYatPercent(
     );
   }
 
-  const x = CubicN(percent, startPt.x, controlPt1.x, controlPt2.x, endPt.x);
-  const y = CubicN(percent, startPt.y, controlPt1.y, controlPt2.y, endPt.y);
+  const x = cubicN(percent, startPt.x, controlPt1.x, controlPt2.x, endPt.x);
+  const y = cubicN(percent, startPt.y, controlPt1.y, controlPt2.y, endPt.y);
   return {
     x,
     y,
