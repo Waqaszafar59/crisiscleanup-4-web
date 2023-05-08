@@ -423,12 +423,12 @@ export default defineComponent({
     function handleFilters(f) {
       appliedFilters.value = {};
       filters.value = f.filters;
-      Object.values(f.filters).forEach((filter: any) => {
+      for (const filter of Object.values(f.filters)) {
         appliedFilters.value = {
           ...appliedFilters.value,
           ...filter.packFunction(),
         };
-      });
+      }
       filtersCount.value = f.count;
 
       showingFilters.value = false;

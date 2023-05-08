@@ -131,7 +131,7 @@ export function transformWidgetData<T extends Record<string, any>>(
       if (graphValue.data.length > 0) {
         for (const [wt, d] of Object.entries(value1)) {
           result[wt] = [];
-          Object.entries(d as any).forEach(([key, state_value]: any) => {
+          for (const [key, state_value] of Object.entries(d as any)) {
             const obj = state_value[0];
 
             for (const k of Object.keys(obj)) {
@@ -142,7 +142,7 @@ export function transformWidgetData<T extends Record<string, any>>(
                 });
               }
             }
-          });
+          }
         }
       }
 

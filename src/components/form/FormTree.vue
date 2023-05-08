@@ -321,12 +321,12 @@ export default defineComponent({
 
     function updateChildren(field: FormField, value: string) {
       if (!value) {
-        field.children.forEach((child: FormField) => {
+        for (const child: FormField of field.children) {
           emit('updateField', {
             key: child.field_key,
             value: child.html_type === 'checkbox' ? false : '',
           });
-        });
+        }
       }
     }
 

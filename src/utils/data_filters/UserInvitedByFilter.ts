@@ -19,21 +19,21 @@ export default class UserInvitedByFilter extends Filter {
 
   getFilterLabels() {
     const labels: Record<any, any> = {};
-    [...this.data].forEach((user: any) => {
+    for (const user of this.data) {
       const { id, full_name } = user;
       labels[id] = useI18n().t('userInvitedBy.invited_by', {
         full_name,
       });
-    });
+    }
     return labels;
   }
 
   removeField(identifier: string) {
-    [...this.data].forEach((x: any) => {
+    for (const x of this.data) {
       if (Number(x.id) === Number(identifier)) {
         this.data.delete(x);
       }
-    });
+    }
     this.data = new Set(this.data);
   }
 }
