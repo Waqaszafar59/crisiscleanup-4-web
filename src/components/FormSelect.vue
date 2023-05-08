@@ -178,7 +178,7 @@ export default defineComponent({
     });
 
     const inputRef = computed(() => {
-      return input.value || document.getElementById(inputIdSelector.value);
+      return input.value || document.querySelector('#' + inputIdSelector.value);
     });
 
     const heightMultiplier = computed(() => {
