@@ -14,17 +14,17 @@ export function useWebSockets(url, name, cb) {
       socket?.send(JSON.stringify(message));
     };
 
-    socket.onmessage = (e) => {
+    socket.addEventListener('message', (e) => {
       cb(JSON.parse(e.data));
-    };
+    });
 
     socket.addEventListener('open', (e) => {
       // Window.vue.$log.debug(`open connection with ${name} socket`, e);
     });
 
-    socket.onerror = (e) => {
+    socket.addEventListener('error', (e) => {
       // Window.vue.$log.error(`error in connection with ${name} socket`, e);
-    };
+    });
 
     socket.addEventListener('close', (e) => {
       // Window.vue.$log.error(
