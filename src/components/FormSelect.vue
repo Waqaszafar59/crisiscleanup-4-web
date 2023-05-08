@@ -173,7 +173,7 @@ export default defineComponent({
     };
 
     const inputIdSelector = computed(() => {
-      const idSpec = props.floatLabel ? props.floatLabel : '';
+      const idSpec = props.floatLabel ?? '';
       return `select-id-${kebabCase(idSpec)}`;
     });
 
