@@ -429,6 +429,7 @@ export default defineComponent({
           ...filter.packFunction(),
         };
       }
+
       filtersCount.value = f.count;
 
       showingFilters.value = false;
