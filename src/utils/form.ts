@@ -14,9 +14,7 @@ export const groupBy =
   (array: T[]): Record<T[K], T[]> =>
     array.reduce<Record<T[K], T[]>>((objectsByKeyValue, object) => {
       const value = object[key];
-      objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(
-        object,
-      );
+      objectsByKeyValue[value] = [...(objectsByKeyValue[value] || []), object];
       return objectsByKeyValue;
     }, {});
 

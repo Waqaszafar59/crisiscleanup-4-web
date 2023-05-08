@@ -23,9 +23,7 @@ const loadCases = async (query: Record<string, any>) => {
 
 const loadCasesCached = async (query: Record<string, any>) => {
   const hashCode = (string_: string) =>
-    string_
-      .split('')
-      .reduce((s, c) => (Math.imul(31, s) + c.charCodeAt(0)) | 0, 0);
+    [...string_].reduce((s, c) => (Math.imul(31, s) + c.charCodeAt(0)) | 0, 0);
   const queryHash = hashCode(JSON.stringify(query));
   const cachedCases = (await DbService.getItem(
     `cachedCases:${queryHash}`,
