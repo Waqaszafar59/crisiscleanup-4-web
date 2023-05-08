@@ -24,7 +24,7 @@ const loadCases = async (query: Record<string, any>) => {
 const loadCasesCached = async (query: Record<string, any>) => {
   const hashCode = (string_: string) =>
     [...string_].reduce(
-      (s, c) => Math.trunc(Math.imul(31, s) + c.charCodeAt(0)),
+      (s, c) => Math.trunc(Math.imul(31, s) + (c.codePointAt(0) ?? 0)),
       0,
     );
   const queryHash = hashCode(JSON.stringify(query));
