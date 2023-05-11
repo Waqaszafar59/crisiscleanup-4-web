@@ -330,7 +330,7 @@ export default defineComponent({
     function handleInvitationsTableChange({
       sorter,
     }: {
-      sorter: SorterObject;
+      sorter: TableSorterObject<Invitation>;
     }) {
       invitationSorter.value = { ...sorter };
     }
@@ -338,7 +338,7 @@ export default defineComponent({
     function handleInvitationRequestsTableChange({
       sorter,
     }: {
-      sorter: SorterObject;
+      sorter: TableSorterObject<Invitation>;
     }) {
       invitationRequestsSorter.value = { ...sorter };
     }
